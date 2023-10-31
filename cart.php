@@ -1,7 +1,15 @@
 <?php require 'inc/head.php'; ?>
+<?php
+    session_start();
+?>
 <section class="cookies container-fluid">
     <div class="row">
-        TODO : Display shopping cart items from $_SESSION here.
+        
+        <?php
+            echo 'Up to now here is what you have in your cart : ' .$_SESSION['name']. ',
+            for a number of ' .$_SESSION['number'];
+        ?>
+
     </div>
 </section>
 <?php require 'inc/foot.php'; ?>
