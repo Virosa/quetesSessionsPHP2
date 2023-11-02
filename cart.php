@@ -1,13 +1,20 @@
-<?php require 'inc/head.php'; ?>
-<?php
-    session_start();
-?>
+<?php 
+session_start();
+require 'inc/head.php'; ?>
+
 <section class="cookies container-fluid">
     <div class="row">
         
         <?php
-            echo 'Up to now here is what you have in your cart : ' .$_SESSION['name']. ',
-            for a number of ' .$_SESSION['number'];
+if (isset($_SESSION['cart'])) {
+    foreach ($_SESSION['cart'] as $cookie) {
+        echo '<h1>' . $cookie['name'] . '</h1>';
+        echo '<p>' . $cookie['description'] . '</p>';
+    }
+} else {
+
+            echo 'Your cart is empty.';
+}
         ?>
 
     </div>

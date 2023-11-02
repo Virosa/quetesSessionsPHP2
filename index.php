@@ -1,12 +1,16 @@
-<?php require 'inc/data/products.php'; ?>
-<?php require 'inc/head.php'; ?>
-
 <?php
-    session_start();
-    $_SESSION['name'] = 'chocolate chips';
-    $_SESSION['number'] = 12;
-    
+session_start();
+require 'inc/data/products.php'; 
+require 'inc/head.php'; 
+
+if (isset($_GET['add_to_cart'])) {   
+    $product = $_GET['add_to_cart'];   
+    if (isset($catalog[$product])) {          
+        $_SESSION['cart'][] = $catalog[$product];
+    }
+}     
 ?>
+
 
 <section class="cookies container-fluid">
     <div class="row">
